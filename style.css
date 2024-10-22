@@ -1,0 +1,520 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+:root {
+  --clr-neutral-700: hsl(200, 15%, 8%);
+  --clr-neutral-500: hsl(0, 0%, 52%);
+  --clr-neutral-200: hsl(0, 0%, 98%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+
+  --ff-primary: "Nunito Sans", sans-serif;
+
+  --ff-body: var(--ff-primary);
+  --ff-heading: var(--ff-primary);
+
+  --fw-regular: 300;
+  --fw-semi-bold: 600;
+  --fw-bold: 800;
+
+
+  --fs-homepage: 0.875rem;
+  --fs-detail-page: 1rem;
+  --fs-primary-heading: 1.2rem;
+  --fs-secondary-heading: 1.4rem;
+
+  /* Web site body & heading's fs's */
+  --fs-body: var(--fs-homepage);
+  --fs-primary-heading: var(--fs-primary-heading);
+  --fs-secondary-heading: var(--fs-secondary-heading);
+
+  --border-radius-500: 6px;
+  --br-normal: var(--border-radius-500);
+
+  --box-shadow: 0px 3px 18px -13px var(--clr-neutral-500);
+
+  --size-100: .25rem;
+  --size-200: .5rem;
+  --size-300: .75rem;
+  --size-400: 1rem;
+  --size-500: 1.5rem;
+  --size-600: 2rem;
+  --size-700: 3rem;
+  --size-800: 4rem;
+  --size-900: 5rem;
+}
+
+
+/* CSS reset------------------------------------ */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+
+
+/* General styling -----------------------------------*/
+
+body {
+  color: var(--clr-neutral-700);
+  font-family: var(--ff-body);
+  font-size: var(--fs-detail-page);
+  margin: 0;
+  background-color: var(--clr-neutral-200);
+}
+
+
+/* Buttons -------------------------------------------- */
+
+.dark-mode-btn {
+  border: none;
+  background-color: var(--clr-neutral-100);
+}
+
+
+/* HTML components /////////////////////////////////////////*/
+/* Header section ------------------------------------------*/
+
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Filter methods section (Search and dropdown list) */
+.filter-container {
+  display: grid;
+  gap: 3rem;
+  margin: 2rem 0 3rem 0;
+}
+
+
+.border-bottom {
+  border-bottom: 1px solid var(--clr-neutral-200);
+  width: 100%;
+  box-shadow: 0px 3px 4px -16px var(--clr-neutral-500);
+}
+
+/* Search bar */
+
+#search-bar {
+  width: 100%;
+  max-width: 32rem;
+  /* opacity: 0.5; */
+  border: none;
+  background-color: var(--clr-neutral-100);
+  box-shadow: 0px 3px 18px -13px var(--clr-neutral-500);
+  cursor: text; 
+}
+
+.search-bar-container {
+  position: relative;
+}
+
+
+.search-icon {
+  position: absolute;
+  top: 0.9rem; 
+  left: 2rem;
+  fill: var(--clr-neutral-500);
+}
+
+.region-dropdown {
+  border: none;
+  padding: 1rem;
+
+  appearance: none; /* Remove default dropdown arrow */
+  background: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22currentColor%22 class=%22size-6%22%3E%3Cpath fill-rule=%22evenodd%22 d=%22M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E') no-repeat right 1rem center;
+  background-size: 12px; /* Adjust the size of your icon */
+  
+  /* Ensure the icon doesn't overlap with the text */
+  padding-right: 2.5rem; /* Add padding to the right to make space for the icon */
+  cursor: pointer; /* Change the cursor to pointer to indicate interaction */
+}
+
+
+/* Countries card section */
+
+.countries-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+  gap: 4rem;
+  margin-inline: auto;
+  margin-bottom: 3rem;
+  width: 100%;
+  padding-left: 0;
+}
+
+.countries-container > * {
+  max-width: 100%;
+  justify-self: stretch;
+}
+
+
+
+/* Card container */
+.countries-card-container {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: var(--border-radius-500);
+  overflow: hidden;
+  padding-left: 0;
+}
+
+
+/* Flag section */
+
+.flag-container {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--border-radius-500) var(--border-radius-500) 0 0;
+}
+
+.flag-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+.country-title {
+  margin: 1.6rem 0;
+}
+
+.country-info {
+  list-style-type: none;
+  display: grid;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.country-info li {
+  margin: 0;
+  
+}
+
+.country-info li:last-child {
+  padding-bottom: 2rem;
+}
+
+/* Details Web page screen size*/
+
+@media (min-width: 920px) {
+  .countries-details-container {
+    max-width: 1350px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 3fr minmax(5fr, auto) minmax(auto, 2fr);
+    grid-template-areas: 
+      "header header header header"
+      "flag flag text1 text2"
+      "flag flag border border";
+    grid-column-gap: 0px;
+    gap: 0 95px;
+  } 
+
+
+  .back-btn-container {
+    grid-area: header;
+  }
+  
+  .details-flag {
+    grid-area: flag;
+  }
+
+  .details-info, .details-info__supplementary {
+    justify-self: left;
+    align-self: left;
+    grid-area: text1;
+  }
+
+  .details-info__supplementary {
+    align-self: center;
+    grid-area: text2;
+  }
+
+  .border-btns-container {
+    grid-area: border;
+    display: flex;
+    font-size: 0.8rem;
+    align-items: baseline;
+  }
+
+  .border-country-heading {
+    white-space: nowrap;
+    margin-right: 1rem;
+  }
+
+  .countries-details-container .back-btn {
+    margin-top: 3rem;
+  }
+}
+
+
+/* details page general code */
+.back-btn {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 8px 16px;
+  margin-top: 2rem;
+}
+
+.details-info h2 {
+  margin: 2.5rem 0 1.5rem 0;
+}
+
+
+.border-country-heading {
+  margin-bottom: 1.5rem;
+}
+
+.border-countries-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+.border-country-btn {
+  color: var(--clr-neutral-700);
+  border: none;
+  text-decoration: none;
+  padding: 0.5rem;
+  text-align: center;
+  background-color: var(--clr-neutral-100);
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  word-break: break-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+}
+
+/* Utility Classes -----------------------------------*/
+
+
+.container {
+  max-width: 1350px;
+  margin-inline: auto; 
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .default-page-container {
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .default-page-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .default-page-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1350px) {
+  .container {
+    padding: 0;
+  }
+  
+  .default-page-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .filter-container{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dropdown-list {
+    justify-self: right;
+  }
+}
+
+
+:where(.flow > :not(:first-child)) {
+  margin-top: var(--flow-spacer, 3em);
+}
+
+
+.even-columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Fonts weights*/
+
+.fw-regular {
+  font-weight: var(--fw-regular);
+}
+
+.fw-semi-bold {
+  font-weight: var(--fw-semi-bold);
+}
+
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
+
+/* font-sizes */
+
+
+.fs-secondary-heading {
+  font-size: var(--fs-secondary-heading);
+}
+
+.fs-small {
+  font-size: var(--fs-homepage);
+}
+
+.fs-dark-mode-btn {
+  font-size: var(--fs-homepage);
+}
+
+/* Padding */
+
+.header-padding {
+  padding-top: 2rem;
+  padding-bottom: 2rem
+}
+
+.search-bar-padding {
+  padding: 1rem 0 1rem 5rem;
+}
+
+/* border radius */
+
+.br-normal {
+  border-radius: var(--br-normal);
+}
+
+.br-bottom {
+  border-radius: 0 0 8px 8px;
+}
+
+/* bg Colors */   
+
+.bg-neutral-100 {
+  background-color: var(--clr-neutral-100);
+}
+
+.bg-neutral-200 {
+  background-color: var(--clr-neutral-200);
+}
+
+
+/* Box shadows */
+
+.box-shadow {
+  box-shadow: 0px 3px 18px -13px var(--clr-neutral-500);
+}
+
+.btn-box-shadow {
+  box-shadow: 0 0px 5px rgba(0,0,0,0.1);
+}
+
+/* padding */
+
+.card-info-padding-left {
+  padding-left: 1.5rem;
+}
+
+/* Margins */
+
+.margin-bottom-600 {
+  margin-block-end: var(--size-700);
+}
+
+
+
+
+
